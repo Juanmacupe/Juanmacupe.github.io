@@ -1,0 +1,36 @@
+body{
+    background-image: url(fondo/fondo_gif.gif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: white;
+}
+h1{
+    text-align: center;
+    font-size: 100px;
+}
+div{
+    text-align: center;
+    margin-left: 35%;
+}
+button{
+    background-color: transparent;
+    display: block;
+    padding: 10px;
+    border: dashed 2px white;
+    margin-bottom: 10px;
+}
+button:hover{
+    box-shadow: white 10px 10px 10px 10px;
+    border: white 2px solid;
+}
+a{
+    font-size: 60px;
+    text-decoration: none;
+    color: white;
+}
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
