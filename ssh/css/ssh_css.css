@@ -1,6 +1,6 @@
 body{
     background-image: url(../img/fondo_ssh.jpg);
-    background-repeat: round;
+    background-repeat: repeat;
     background-position: top center;
     /*background-attachment: fixed;*/
     /*background-size: 100% 100%;*/
