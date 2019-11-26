@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tutorial_GitHub</title>
+    <link rel="stylesheet" href="css/tut_css.css">
+</head>
+<body>
+    <h1>TUTORIAL DE GITHUB</h1>
+    <div>
+        <p class="comandos">git init</p>
+        <p class="comandos">git remote add origin https://github.com/JuanmaCueva/JuanmaCueva.github.io</p>
+        <p class="comandos">git pull origin master</p>
+        <p class="comandos">git add css docker.html index.html docker.html index.html js snd img</p>
+        <p class="comandos">git push origin master</p>
+        <p class="comandos">git commit -m "Primer commit"</p>
+        <p class="comandos">git push origin master (Usuario y Contraseña)</p>
+    </div>
+    <div>
+    <p>Veamos un ejemplo:</p>
+<pre>
+    # Use phusion/baseimage as base image.
+    FROM ubuntu:latest
+    
+    # Use baseimage-docker's init system.
+    CMD ["/sbin/my_init"]
+    
+    # Install prerequisites
+    RUN apt-get update; \
+        apt-get install -y udhcpd
+    
+    # Set up start up scripts
+    RUN mkdir /etc/service/udhcpd
+    ADD udhcpd.sh /etc/service/udhcpd/run
+    RUN chmod +x /etc/service/udhcpd/run
+    
+    # Clean up APT when done.
+    RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+    # Expose the port
+    EXPOSE 67
+    EXPOSE 67/udp
+    EXPOSE 68
+    EXPOSE 68/udp
+    
+    # Volumes
+    VOLUME /data
+</pre>
+
+    <p>
+        La línea <bold>FROM ubuntu:latest</bold> sirve para 
+        indicar la imagen base que queremos usar para nuestro 
+        contenedor.
+    </p>
+
+    <p>
+
+
+    </p>
+
+    <h3>
+        CREAMOS EL ARCHIVOS udhcpd.conf
+    </h3>
+<pre>
+# The start and end of the IP lease block
+start	172.17.0.200
+end		172.17.0.210
+
+# The interface that udhcpd will use
+interface	eth0
+
+opt	dns	192.168.18.3 8.8.8.8
+option	subnet	255.255.0.0
+opt	router	172.17.0.1
+# opt	wins	192.168.10.10
+# option	dns	129.219.13.81	# appended to above DNS servers for a total of 3
+option	domain	local
+option	lease	864000		
+</pre>
+
+        <h3>CREAR EL CONTENEDOR:</h3>                    
+        <p class="comandos">docker build .</p>
+        <p class="comandos">
+        <h3>LANZAR EL CONTENEDOR:</h3>
+        <p class="comandos">docker run -d --net=host -p 67:67 -p 67:67/udp
+            -p 68:68 -p 68:68/udp --name=dhcpd 
+            -v "RUTA AL DIRECTORIO udhcpd"/data ubuntu:latest </p>
+        </p>
+        <h3>ABRIR TERMINAL EN CONTENEDOR:</h3>
+        <p class="comandos">docker exec -ti NOMBRE_CONTENEDOR /bin/bash</p>
+    </div>
+</body>
+</html>
